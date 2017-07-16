@@ -1,0 +1,19 @@
+{
+  "name": "angular-todo",
+  "version": "1.0.0",
+  "description": "Angular project for codeinstitute",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerekByrne/angular-todo.git"
+  },
+  "author": "Derek Byrne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DerekByrne/angular-todo/issues"
+  },
+  "homepage": "https://github.com/DerekByrne/angular-todo#readme"
+}
