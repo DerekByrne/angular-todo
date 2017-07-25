@@ -1,4 +1,4 @@
-angular.module('TodoApp', ['ngRoute', 'RouteControllers' , 'UserService', 'angular-storage']);
+angular.module('TodoApp', ['ngRoute', 'RouteControllers' , 'UserService', 'angular-storage' ,'TodoService']);
  
 angular.module('TodoApp').config(function($locationProvider, $routeProvider) {
     $locationProvider.html5Mode(true);  // Enable href routing without hashes
@@ -12,7 +12,11 @@ angular.module('TodoApp').config(function($locationProvider, $routeProvider) {
         controller: 'RegisterController'
     })
     .when('/todo', {
-    	templateUrl: 'templates/todo.html', 
-    	controller: 'TodoController'
-    });
+		templateUrl: 'templates/todo.html',
+		controller: 'TodoController'
+    })
+    .when('/todo/edit/:id', {
+	    templateUrl:'templates/edit-todo.html',
+	    controller: 'EditTodoController'
+});
 });
