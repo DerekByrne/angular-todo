@@ -1,0 +1,16 @@
+.navbar-custom{
+	background-color: #ad1d28;
+
+}
+
+.navbar-custom a{
+	color: white;
+}
+
+.nav li a:hover,  .nav li a:active, .nav .open a, .nav .open a:hover, .nav li a:focus, .nav .open a:focus{
+	background-color: #D92432
+}
+
+#drop .bgwhite{
+	background-color: white;
+}
