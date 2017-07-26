@@ -5,7 +5,7 @@ angular.module('RouteControllers', [])
             $rootScope.logged = true;
         }
     })
-    .controller('RegisterController', function($scope, UserAPIService, store, $location) {
+    .controller('RegisterController', function($scope, UserAPIService, store, $location, $rootScope) {
         if (store.get('authToken')) {
             $location.path("/todo");
         }
@@ -17,6 +17,10 @@ angular.module('RouteControllers', [])
                 $scope.token = results.data.token;
                 store.set('username', $scope.registrationUser.username);
                 store.set('authToken', $scope.token);
+                if (store.get('authToken')) {
+                        $location.path("/todo");
+                        $rootScope.logged = true;
+                    }
             }).catch(function(err) {
                 console.log(err);
             });
@@ -45,13 +49,16 @@ angular.module('RouteControllers', [])
         $scope.loginUser ={};
         $scope.login = function() {
             if ($scope.loginForm.$valid) {
-                $rootScope.logged = true;
                 $scope.loginUser.username = $scope.user.username;
                 $scope.loginUser.password = $scope.user.password;
                 UserAPIService.callAPI(URL + "accounts/api-token-auth/", $scope.loginUser).then(function(results) {
                     $scope.token = results.data.token;
                     store.set('username', $scope.loginUser.username);
                     store.set('authToken', $scope.token);
+                    if (store.get('authToken')) {
+                        $location.path("/todo");
+                        $rootScope.logged = true;
+                    }
                     $location.path("/todo");
                     alert("You have logged in");
                 }).catch(function(err) {
